@@ -1,10 +1,14 @@
 import express, { Request, Response } from "express";
+import { booksRouter } from "./modules/books/books.router";
 
-
+//servicio de express
 const app = express();  
 
+//call modules and add specific routes
+app.use("/books",booksRouter);
+
 app.get("/", (req: Request, res: Response) => {
-    res.status(400).send({ msg:"hello luis" });
+    res.status(200).send({ msg:"hello luis" });
 });
 
 
