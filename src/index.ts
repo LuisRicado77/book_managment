@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { booksRouter } from "./modules/books/books.router";
+import { bookRouter } from "./modules/book/book.router";
 
 import { Parameter } from "./utils/constants";
 import { initDatabase } from "./db/mongo";
@@ -8,7 +8,9 @@ import { initDatabase } from "./db/mongo";
 const app = express();  
 
 //call modules and add specific routes
-app.use("/books",booksRouter);
+app.use("/book",bookRouter);
+
+app.use(express.json());
 
 app.get("/", (req: Request, res: Response) => {
     res.status(200).send({ msg:"hello luis" });
