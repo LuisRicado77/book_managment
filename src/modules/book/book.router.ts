@@ -1,6 +1,9 @@
 import { Router } from "express";
 import  express, {Request,Response}  from "express";
 import { addBook } from "./controller/book.controller";
+import {schemaMiddleware} from "../../middlewares/schema.middleware"
+import { createBookSchema } from './schema/book.schema';
+
 
 const bookRouter = Router();
 
@@ -9,7 +12,7 @@ bookRouter.get("/", (req: Request, res: Response) => {
 });
 
 
-bookRouter.post("/", async (req:Request, res:Response) =>{
+bookRouter.post("/", schemaMiddleware(createBookSchema) ,async (req:Request, res:Response) =>{
     
     try {
         const body = req.body;
