@@ -14,5 +14,11 @@ const createBookSchema = Joi.object({
     isbn: isbn.required(),
     genre: genre.required()
 })
-
-export {createBookSchema}
+const updateBookSchema = Joi.object({
+    title: title,
+    author:author,
+    publicationDate: publicationDate,
+    isbn: isbn,
+    genre: genre
+})
+export {createBookSchema, updateBookSchema}
