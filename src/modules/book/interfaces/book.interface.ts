@@ -6,4 +6,4 @@ export interface IBook {
     genre:string
 };
 
-export interface IBookUpdate extends Partial<IBook>{}
+export interface IBookUpdate extends Partial<IBook> {};

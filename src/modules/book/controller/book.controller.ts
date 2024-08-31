@@ -23,4 +23,21 @@ export const getBooks = async () =>{
     }catch(error){
         throw new Error("Could not read in database");
     }
-}
+};
+
+
+export const getBooksById = async (id:string) =>{
+    try{
+        return await bookModel.findById(id);
+    }catch(error){
+        throw new Error("Could not read in database");
+    }
+};
+
+export const deleteBookById = async (id:string) =>{
+    try{
+        return await bookModel.findByIdAndDelete(id);
+    }catch(error){
+        throw new Error("Could not read in database");
+    }
+};
